@@ -19,11 +19,12 @@ import java.util.Arrays;
  * 3. Swap A[q] with A[r] and the return q
  * 
  * Note - u is variable but refers to u - unknown group. 
+ * Hint to solve partition   
  * There can be four group. 
  * 	1. Left A[p,q-1] < A[q] 
  * 	2. Right A[q+1,r]> A[q] 
  * 	3. Unknown A[u,r-1]
- * and 4. A[q], the pivot. 
+ * and 4. A[q], the pivot and start with Left,Right as empty and all the elements belongs to Unknown
  * 
  * @author santosh.bhushan
  */
