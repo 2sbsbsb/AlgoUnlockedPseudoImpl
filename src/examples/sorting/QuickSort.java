@@ -42,11 +42,11 @@ public class QuickSort {
 
 	/**
 	 */
-	public static void quicky(int[] arr, int p, int r) {
+	public static void quickSort(int[] arr, int p, int r) {
 		if (p < r) {
 			int q = partition(arr, p, r);
-			quicky(arr, p, q - 1);
-			quicky(arr, q + 1, r);
+			quickSort(arr, p, q - 1);
+			quickSort(arr, q + 1, r);
 		}
 	}
 
@@ -58,7 +58,7 @@ public class QuickSort {
 		System.out.println("Input=" + Arrays.toString(arr));
 		int p = 0;
 		int r = arr.length - 1;
-		quicky(arr, p, r);
+		quickSort(arr, p, r);
 		System.out.println("Output=" + Arrays.toString(arr));
 	}
 
