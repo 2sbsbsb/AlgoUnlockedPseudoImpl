@@ -3,7 +3,8 @@ package examples.sorting;
 import java.util.Arrays;
 
 /**
- * CLRS Implementation of pseudo code
+ * Implementation of pseudo code from Book Algorithm Unlocked [Ch#3 : Section 5
+ * : Quick Sort ]
  * 
  * @author santosh.bhushan
  */
