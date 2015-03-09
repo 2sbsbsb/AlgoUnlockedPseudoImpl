@@ -5,6 +5,26 @@ import java.util.Arrays;
 /**
  * Implementation of pseudo code from Book Algorithm Unlocked [Ch#3 : Section 5 : Quick Sort ]
  * 
+ * 1. If p > r then just return without doing anything 
+ * 2. Otherwise do the following 
+ * 	a. Call partition (A,p,r) and set q to the result; 
+ * 	b. Recursively	call quickSort(A,p,q-1) 
+ * 	c. Recursively call quickSort(A,q+1,r)
+ * 
+ * Whereas the partition algorithm is
+ * 
+ * 1. Set q = p 
+ * 2. For u = p to r-1 Do 
+ * 	a. if A[u] <= A[r], then swap A[q] with A[u] and then increment q 
+ * 3. Swap A[q] with A[r] and the return q
+ * 
+ * Note - u is variable but refers to u - unknown group. 
+ * There can be four group. 
+ * 	1. Left A[p,q-1] < A[q] 
+ * 	2. Right A[q+1,r]> A[q] 
+ * 	3. Unknown A[u,r-1]
+ * and 4. A[q], the pivot. 
+ * 
  * @author santosh.bhushan
  */
 public class QuickSort {
@@ -49,7 +69,7 @@ public class QuickSort {
      * @param r
      */
     public static void quickSort(int[] arr, int p, int r) {
-	if (p < r) {
+	if (p <= r) {
 	    int q = partition(arr, p, r);
 	    // Note - a[q] is left out
 	    quickSort(arr, p, q - 1);
