@@ -24,58 +24,58 @@ import java.util.Arrays;
  * 	1. Left A[p,q-1] < A[q] 
  * 	2. Right A[q+1,r]> A[q] 
  * 	3. Unknown A[u,r-1]
- * and 4. A[q], the pivot and start with Left,Right as empty and all the elements belongs to Unknown
+ * and  4. A[q], the pivot and start with Left,Right as empty and all the elements belongs to Unknown
  * 
  * @author santosh.bhushan
  */
 public class QuickSort {
 
-   /**
-    * @param arr
-    * @param p
-    * @param r
-    * @return
-    */
-    private static int partition(int[] arr, int p, int r) {
+    /**
+     * @param A
+     * @param p
+     * @param r
+     * @return q such that A[1],A[2],...A[q-1] <= A[q] and A[q+1], A[q+2],...,A[r] > A[q]
+     */
+    private static int partition(int[] A, int p, int r) {
 	int q = p;
-	System.out.println("Before partition p=" + p + " q=" + q + " r = " + r + " and " + Arrays.toString(arr));
+	System.out.println("Before partition p=" + p + " q=" + q + " r = " + r + " and " + Arrays.toString(A));
 	for (int u = p; u < r; u++) {
-	    if (arr[u] <= arr[r]) {
-		swap(arr, q, u);
+	    if (A[u] <= A[r]) {
+		swap(A, q, u);
 		q++;
 	    }
 	}
-	swap(arr, r, q);
-	System.out.println("After partition p=" + p + " q=" + q + " r = " + r + " and " + Arrays.toString(arr));
+	swap(A, r, q);
+	System.out.println("After partition p=" + p + " q=" + q + " r = " + r + " and " + Arrays.toString(A));
 	return q;
     }
 
     /**
      * Swap the content of i and j position
      * 
-     * @param arr
+     * @param A
      * @param i
      * @param j
      */
-    private static void swap(int[] arr, int i, int j) {
-	int temp = arr[i];
-	arr[i] = arr[j];
-	arr[j] = temp;
+    private static void swap(int[] A, int i, int j) {
+	int temp = A[i];
+	A[i] = A[j];
+	A[j] = temp;
     }
 
     /**
      * Quick Sort
      * 
-     * @param arr
+     * @param A
      * @param p
      * @param r
      */
-    public static void quickSort(int[] arr, int p, int r) {
+    public static void quickSort(int[] A, int p, int r) {
 	if (p <= r) {
-	    int q = partition(arr, p, r);
-	    // Note - a[q] is left out
-	    quickSort(arr, p, q - 1);
-	    quickSort(arr, q + 1, r);
+	    int q = partition(A, p, r);
+	    // Note - A[q] is left out
+	    quickSort(A, p, q - 1);
+	    quickSort(A, q + 1, r);
 	}
     }
 
@@ -83,12 +83,12 @@ public class QuickSort {
      * @param args
      */
     public static void main(String[] args) {
-	int[] arr = { 0,2,3,355,67,8,1,23,-5,2,3,-4,5,55, 5, 7, 2, 6, 1, 3, 2 };
-	System.out.println("Input=" + Arrays.toString(arr));
+	int[] A = { 0, 2, 3, 355, 67, 8, 1, 23, -5, 2, 3, -4, 5, 55, 5, 7, 2, 6, 1, 3, 2 };
+	System.out.println("Input=" + Arrays.toString(A));
 	int p = 0;
-	int r = arr.length - 1;
-	quickSort(arr, p, r);
-	System.out.println("Output=" + Arrays.toString(arr));
+	int r = A.length - 1;
+	quickSort(A, p, r);
+	System.out.println("Output=" + Arrays.toString(A));
     }
 
 }
