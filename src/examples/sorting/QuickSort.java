@@ -70,13 +70,24 @@ public class QuickSort {
      * @param p
      * @param r
      */
-    public static void quickSort(int[] A, int p, int r) {
+    public static void quickSortRecursive(int[] A, int p, int r) {
 	if (p <= r) {
 	    int q = partition(A, p, r);
 	    // Note - A[q] is left out
-	    quickSort(A, p, q - 1);
-	    quickSort(A, q + 1, r);
+	    quickSortRecursive(A, p, q - 1);
+	    quickSortRecursive(A, q + 1, r);
 	}
+    }
+
+    /**
+     * @param A
+     */
+    public static void quickSort(int[] A) {
+	System.out.println("Input=" + Arrays.toString(A));
+	int p = 0;
+	int r = A.length - 1;
+	quickSortRecursive(A, p, r);
+	System.out.println("Output=" + Arrays.toString(A));
     }
 
     /**
@@ -84,11 +95,7 @@ public class QuickSort {
      */
     public static void main(String[] args) {
 	int[] A = { 0, 2, 3, 355, 67, 8, 1, 23, -5, 2, 3, -4, 5, 55, 5, 7, 2, 6, 1, 3, 2 };
-	System.out.println("Input=" + Arrays.toString(A));
-	int p = 0;
-	int r = A.length - 1;
-	quickSort(A, p, r);
-	System.out.println("Output=" + Arrays.toString(A));
+	quickSort(A);
     }
 
 }
