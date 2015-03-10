@@ -3,6 +3,34 @@ package examples.sorting;
 import java.util.Arrays;
 
 /**
+ * Implementation of pseudo code from Book Algorithm Unlocked [Ch#3 : Section 4 : Merge Sort ]
+ * 
+ * Merge-Sort(A,p,r)
+ *  
+ * Input A-array, p - start index , r - end index
+ * Result - Sorted array A[p...r] in non-decreasing order. 
+ * 
+ * Step 
+ * 	1. if(p>=r) Do nothing 
+ * 	2. Otherwise 
+ * 		1. Set q = (p+r)/2
+ * 		2. Recursively call Merge-Sort(A,p,q)
+ * 		3. Recursively call Merge-Sort(A,q+1,r)
+ * 		4. Combine(A,p, q,r) 
+
+ * where combine routine is 
+ * 
+ * Combine(A,p, q,r) 
+ * Input A-array, A[p...q] and A[q+1...r] are sorted array	
+ * 1. Set n1 = q-p+1 and Set n2 = r-q; 
+ * 2. Let  B[1...n1+1] and C[1...n2+1] be new arrays 
+ * 3. Copy A[p..q] to B[1...n1] and copy A[q+1...r] into C[1...n2]
+ * 4. Set both B[n1+1] and C[n2+1] to infinity 
+ * 5. Set both i and j = 0 [In the book it is infinity(which appears to by typo]
+ * 6. For k=p to r
+ * 	1. If B[i] <= C[j] then set A[k] to B[i] and increment i
+ * 	2. If B[i] > C[j] then set A[k] to C[j] and increment j
+ * 
  * @author santosh.bhushan
  */
 public class MergeSort {
