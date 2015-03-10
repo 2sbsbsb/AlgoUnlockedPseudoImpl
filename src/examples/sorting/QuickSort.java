@@ -69,6 +69,7 @@ public class QuickSort {
      * @param A
      * @param p
      * @param r
+     * Note - The name ends with recursive to emphasis that this method has been invoked recursively
      */
     public static void quickSortRecursive(int[] A, int p, int r) {
 	if (p <= r) {
